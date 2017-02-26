@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="types">
+        <item >Business Scientist</item>
+        <item >Communicator Scientist</item>
+        <item >Developer Scientist</item>
+        <item >Entrepreneur Scientist</item>
+        <item >Explorer Scientist</item>
+        <item >Investigator Scientist</item>
+        <item >Policy Scientist</item>
+        <item >Regulator Scientist</item>
+        <item >Service Provider Scientist</item>
+        <item >Teacher Scientist</item>
+    </string-array>
+</resources>
