@@ -1,6 +1,8 @@
 package com.example.charlee.whatengineer;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -33,7 +35,7 @@ public class TypeInformation extends MainActivity {
                 .build();
 
         Request request = new Request.Builder()
-                .url("http://192.168.0.20/infotype.php")
+                .url("http://192.168.0.15/infotype.php")
                 .post(formBody)
                 .build();
 
@@ -51,13 +53,19 @@ public class TypeInformation extends MainActivity {
                 try {
                     jsonarray = new JSONArray(responseString);
                     JSONObject firstRow = jsonarray.getJSONObject(0);
+                    final String nameType = firstRow.getString("type_name");
                     final String keySkill = firstRow.getString("key_skill");
+                    final String futureJob = firstRow.getString("likely_job");
+                    final String avgSal = firstRow.getString("avg_salary");
                     //Running on UI thread so we can change the text view.
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             TextView myTextView = (TextView) findViewById(R.id.infohead);
-                            myTextView.setText(keySkill);
+                            myTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+                            myTextView.setText("\n" + "Type of Scientist : " + nameType + "\n\n\n\n Key Skill : " +keySkill + "\n\n\n\n Likely Future Job : "  + futureJob + "\n\n\n\n Average Salary  : £" + avgSal);
+                            //System.out.println(keySkill);
+                           // Log.d("key skills", keySkill);
                         }
                     });
 
